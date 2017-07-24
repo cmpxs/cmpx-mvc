@@ -1,0 +1,8 @@
+var build = require('./cmpx-mvc-build');
+
+module.exports = function(source){
+  let {content, files} = build.buildTypeScript(this.resourcePath, source);
+  files.length > 0 && files.forEach(this.addDependency, this);
+  
+  return content;
+};
