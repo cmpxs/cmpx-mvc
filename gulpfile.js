@@ -2,6 +2,8 @@ var gulp = require('gulp'),
     rollup = require('rollup'),
     rollupTypescript = require('rollup-plugin-typescript2');
 
+var fs = require('fs');
+
 gulp.task('mvc', function () {
     return rollup.rollup({
         entry: "./src/MVC.ts",
@@ -21,6 +23,7 @@ gulp.task('mvc', function () {
 });
 
 gulp.task('tonpm', function () {
+    fs.renameSync('./dist/MVC.d.ts', './dist/index.d.ts')
     return gulp.src(['dist/**'])
         .pipe(gulp.dest('../cmpx-npm/cmpx-mvc'));
 });
