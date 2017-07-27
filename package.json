@@ -9,6 +9,7 @@
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "buildmvc": "rimraf dist && gulp mvc",
     "tonpm": "npm run buildmvc && gulp tonpm",
+    "todemo": "npm run buildmvc && gulp todemo",
     "topages": "npm run build && gh-pages -d dist"
   },
   "author": "",

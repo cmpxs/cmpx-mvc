@@ -473,7 +473,7 @@ export class RouterComponet extends Componet {
 
     private _path: string;
     private updateRender(callback) {
-        _getActionResult(this.name, this.path, this, (view: View) => {
+        this.path && _getActionResult(this.name, this.path, this, (view: View) => {
             if (view){
                 this.render = this.$render(view);
                 this.$update();

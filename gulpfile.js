@@ -27,3 +27,8 @@ gulp.task('tonpm', function () {
     return gulp.src(['dist/**'])
         .pipe(gulp.dest('../cmpx-npm/cmpx-mvc'));
 });
+
+gulp.task('todemo', function () {
+    return gulp.src(['dist/**'])
+        .pipe(gulp.dest('../cmpx-mvc-demo/node_modules/cmpx-mvc'));
+});
