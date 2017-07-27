@@ -15,7 +15,7 @@ module.exports = {
     loaders: [
       {
         test: /\.ts$/,
-        loaders: ['awesome-typescript-loader', 'cmpx-mvc-loader']
+        loaders: ['awesome-typescript-loader', './config/cmpx-mvc-loader']
       }
     ]
   },

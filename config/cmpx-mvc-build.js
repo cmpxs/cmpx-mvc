@@ -9,8 +9,8 @@ var cmpx = require('cmpx'),
 
 var _tmplRegex = /\s*@VMView\s*\((?:\n|\r|\s)*\{(?:\n|\r|.)*?tmpl\s*\:\s*(([`])[^`]*?\2)/gmi,
     _tmplRegex2 = /\s*@VMView\s*\((?:\n|\r|\s)*\{(?:\n|\r|.)*?tmpl\s*\:\s*((["']).*\2)/gmi,
-    _tmplUrlRegex = /\s*@VMView\s*\((?:\n|\r|\s)*\{(?:\n|\r|.)*?tmplUrl\s*\:\s*((["']).*\2)/gmi,
-    _styleUrlRegex = /\s*@VMView\s*\((?:\n|\r|\s)*\{(?:\n|\r|.)*?styleUrl\s*\:\s*((["']).*\2)/gmi,
+    _tmplUrlRegex = /\s*@VMView\s*\((?:\n|\r|\s)*\{(?:\n|\r|.)*?tmplUrl\s*\:\s*((["'`]).*\2)/gmi,
+    _styleUrlRegex = /\s*@VMView\s*\((?:\n|\r|\s)*\{(?:\n|\r|.)*?styleUrl\s*\:\s*((["'`]).*\2)/gmi,
     _webPackCtrlRegex = /new +WebpackLoaderContorllerResult\s*\(\s*(['"`])([^'"`]*)\1[^,]*\,[^'"`]*(['"`])([^'"`]*)\3\)/gmi;
 
 var _buildRegex = /##%(tmpl|tmplUrl|styleUrl|\$render)%\$\-\[([^\]]*?)\]/gmi;
