@@ -473,6 +473,7 @@ export class RouterComponet extends Componet {
 
     private _path: string;
     private updateRender(callback) {
+        this.setRouter();
         _getActionResult(this.name, this.path, this, (view: View) => {
             if (view){
                 this.render = this.$render(view);
@@ -482,22 +483,18 @@ export class RouterComponet extends Componet {
         });
     }
 
-    onUpdateBefore(cb) {
-        if (this.path == this._path)
-            super.onUpdateBefore(cb);
-        else {
-            this._path = this.path;
-            this.updateRender(() => {
-                super.onUpdateBefore(cb);
-            });
-        }
+    private _init = false;
+    private setRouter(){
+        if(this._init) return;
+        this._init = true;
+        this.name && _setRouter(this.name, this);
     }
 
-    onInit(cb) {
-        this.name && _setRouter(this.name, this);
-        this._path = this.path;
+
+    @VMWatch('this.path')
+    private change(path){
         this.updateRender(() => {
-            super.onInit(cb);
+            super.onChanged();
         });
     }
 

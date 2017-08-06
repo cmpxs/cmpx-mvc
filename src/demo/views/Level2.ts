@@ -13,9 +13,9 @@ import { View, VMView } from '../../MVC';
 export class Level2 extends View {
     name = 'Level2';
 
-    onInit(cb){
+    onInit(){
         console.log('Level2 locaction', this.$location, this.$controller, 1);
-        super.onInit(cb);
+        super.onInit();
     }
 
     onDispose(){

@@ -64,8 +64,8 @@ export default class App extends View {
 
     level2:string = '/level2';
 
-    onInit(cb){
-        super.onInit(cb);
+    onInit(){
+        super.onInit();
     }
 
 
