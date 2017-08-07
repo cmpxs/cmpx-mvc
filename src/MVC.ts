@@ -202,6 +202,7 @@ VMManager.parent = function(target:any, context:IVMContext){
 export let VMView = VMComponet;
 
 export class View extends Componet {
+    static RootView:View;
     readonly $location: ActionLocation;
     readonly $parentView: View;
     readonly $controller:Controller;
@@ -512,7 +513,7 @@ export class MvcBrowser extends Browser {
         _rootLoactionDef = VMManager.getVM(controllerDef.prototype, 'location');
         _routerAction = _buildAction(controllerDef, null, appView);
         //appView.prototype.$controller
-        let app  = _root = new appView();
+        let app  = View.RootView =  _root = new appView();
         super.boot(app);
     }
 }
