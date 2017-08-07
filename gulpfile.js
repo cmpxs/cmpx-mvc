@@ -29,6 +29,7 @@ gulp.task('tonpm', function () {
 });
 
 gulp.task('todemo', function () {
+    fs.renameSync('./dist/MVC.d.ts', './dist/index.d.ts')
     return gulp.src(['dist/**'])
         .pipe(gulp.dest('../cmpx-mvc-demo/node_modules/cmpx-mvc'));
 });
