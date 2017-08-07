@@ -193,7 +193,7 @@ export class ActionLocation {
 VMManager.parent = function(target:any, context:IVMContext){
     switch(context.type){
         case "Componet":
-            return target.$controller;
+            return target.$controller || _rootController;
         case "Controller":
             return target.$parent;
     }
