@@ -1,6 +1,17 @@
 import { Componet, CmpxLib, VMComponet, CmpxEvent, VMWatch, Browser, Bind, VMAttr, VMBind, VMEvent, VMManager, IVMContext } from 'cmpx';
 export * from 'cmpx'
 
+declare global {
+    /**
+     * 声明按需加
+     */
+    const require: {
+        <T>(path: string): T;
+        (paths: string[], callback: (...modules: any[]) => void): void;
+        ensure: (paths: string[], callback: (require: <T>(path: string) => T) => void, chunckName?: string) => void;
+    };
+}
+
 export abstract class ActionResult {
     readonly $location: ActionLocation;
     abstract onLayout(cb): void;
@@ -209,14 +220,6 @@ export class View extends Componet {
     readonly $root:View;
 }
 
-/**
- * 声明按需加
- */
-declare let require: {
-    <T>(path: string): T;
-    (paths: string[], callback: (...modules: any[]) => void): void;
-    ensure: (paths: string[], callback: (require: <T>(path: string) => T) => void, chunckName?: string) => void;
-};
 
 // export function WebpackModuleLoader(moduleFile: any, moduleName: string, cb: any): void {
 //     if (!CmpxLib.isString(moduleFile)) {
